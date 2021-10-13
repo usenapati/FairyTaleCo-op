@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// a little credit to
+// a little credit to 
 // One Wheel Studio: https://www.youtube.com/watch?v=YHC-6I_LSos
 // samyam: https://www.youtube.com/watch?v=m5WsmlEOFiA
 // great resources to help me get this up and running.
