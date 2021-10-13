@@ -11,7 +11,7 @@ public class GoblinController : MonoBehaviour
     // exported variables
 
     public float movementSpeed = 5;
-    public float jumpForce = 500;
+    public float jumpForce = 5;
 
     public bool facingRight = false;
 
