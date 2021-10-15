@@ -1,20 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class LixController : MonoBehaviour
+public class GoblinController : MonoBehaviour
+
+    // controls variable
 {
+    private GoblinInputActions goblinControls;
+
+    // exported variables
+
     public float movementSpeed = 5;
-    public float jumpForce = 1;
+    public float jumpForce = 5;
 
     public bool facingRight = false;
+
+    // private components
 
     private Animator anim;
 
     private Rigidbody2D r;
 
-    // Start is called before the first frame update
+    // Start is called before the first frame update. Get components
     void Start()
     {
         r = GetComponent<Rigidbody2D>();
@@ -22,11 +29,33 @@ public class LixController : MonoBehaviour
         Debug.Log("Hi from Lix Control Script Start() method!");
     }
 
-    // Update is called once per frame
-    void Update()
+    // Input events
+
+    private void Awake()
     {
-        /*
-        float movement = Input.GetAxis("Horizontal") * Time.deltaTime * movementSpeed;
+        goblinControls = new GoblinInputActions();
+    }
+
+    private void OnEnable()
+    {
+        goblinControls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        goblinControls.Disable();
+    }
+
+    private void Update()
+    {
+        Vector2 move_keys = goblinControls.Player.Move.ReadValue<Vector2>();
+        // Debug.Log(move);
+        if (goblinControls.Player.Jump.triggered)
+        {
+            Debug.Log("lix jump");
+        }
+
+        float movement = move_keys.x * Time.deltaTime * movementSpeed;
 
         if ((movement < 0 && facingRight) || (movement > 0 && !facingRight))
         {
@@ -37,7 +66,7 @@ public class LixController : MonoBehaviour
 
         anim.SetFloat("Speed", Mathf.Abs(movement));
 
-        if (Input.GetButtonDown("Jump") && Mathf.Abs(r.velocity.y) < 0.001)
+        if (goblinControls.Player.Jump.triggered && Mathf.Abs(r.velocity.y) < 0.001)
         {
             r.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
             anim.SetBool("IsJumping", true);
@@ -47,24 +76,22 @@ public class LixController : MonoBehaviour
             anim.SetBool("IsJumping", false);
         }
 
-
         // Animation Demo
-        if (Input.GetKeyUp(KeyCode.Alpha1))
+        if (goblinControls.Animations.Dance.triggered)
         {
             anim.Play("Lix_Dance");
         }
-        if (Input.GetKeyUp(KeyCode.Alpha2))
+        if (goblinControls.Animations.Winner.triggered)
         {
             anim.Play("Lix_Winner");
         }
-        if (Input.GetKeyUp(KeyCode.Alpha3))
+        if (goblinControls.Animations.Loser.triggered)
         {
             anim.Play("Lix_Loser");
         }
-        */
     }
 
-    void Flip()
+     void Flip()
     {
     // Switch the way the player is labelled as facing
     facingRight = !facingRight;
@@ -72,10 +99,5 @@ public class LixController : MonoBehaviour
     Vector3 theScale = transform.localScale;
     theScale.x *= -1;
     transform.localScale = theScale;
-    }
-
-    public void Move(InputAction.CallbackContext context)
-    {
-        Debug.Log("Lix is moving!");
     }
 }
