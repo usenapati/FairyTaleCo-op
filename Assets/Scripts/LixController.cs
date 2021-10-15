@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class LixController : MonoBehaviour
 {
@@ -18,11 +19,13 @@ public class LixController : MonoBehaviour
     {
         r = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        Debug.Log("Hi from Lix Control Script Start() method!");
     }
 
     // Update is called once per frame
     void Update()
     {
+        /*
         float movement = Input.GetAxis("Horizontal") * Time.deltaTime * movementSpeed;
 
         if ((movement < 0 && facingRight) || (movement > 0 && !facingRight))
@@ -38,26 +41,27 @@ public class LixController : MonoBehaviour
         {
             r.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
             anim.SetBool("IsJumping", true);
-        } 
-        else if (Mathf.Abs(r.velocity.y) < 0.001) 
+        }
+        else if (Mathf.Abs(r.velocity.y) < 0.001)
         {
             anim.SetBool("IsJumping", false);
         }
 
 
-        //Animation Demo
-        if (Input.GetKeyUp(KeyCode.Alpha1)) 
+        // Animation Demo
+        if (Input.GetKeyUp(KeyCode.Alpha1))
         {
             anim.Play("Lix_Dance");
         }
-        if (Input.GetKeyUp(KeyCode.Alpha2)) 
+        if (Input.GetKeyUp(KeyCode.Alpha2))
         {
             anim.Play("Lix_Winner");
         }
-        if (Input.GetKeyUp(KeyCode.Alpha3)) 
+        if (Input.GetKeyUp(KeyCode.Alpha3))
         {
             anim.Play("Lix_Loser");
         }
+        */
     }
 
     void Flip()
@@ -68,5 +72,10 @@ public class LixController : MonoBehaviour
     Vector3 theScale = transform.localScale;
     theScale.x *= -1;
     transform.localScale = theScale;
+    }
+
+    public void Move(InputAction.CallbackContext context)
+    {
+        Debug.Log("Lix is moving!");
     }
 }
