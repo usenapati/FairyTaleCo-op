@@ -23,7 +23,6 @@ public class TwixController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
         float movement = Input.GetAxis("Horizontal") * Time.deltaTime * movementSpeed;
 
         if ((movement < 0 && facingRight) || (movement > 0 && !facingRight))
@@ -59,7 +58,6 @@ public class TwixController : MonoBehaviour
         {
             anim.Play("Trix_Lose");
         }
-        */
     }
 
     void Flip()
