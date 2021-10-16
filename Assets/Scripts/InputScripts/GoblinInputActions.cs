@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/GoblinInputActions.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/InputScripts/GoblinInputActions.inputactions'
 
 using System;
 using System.Collections;

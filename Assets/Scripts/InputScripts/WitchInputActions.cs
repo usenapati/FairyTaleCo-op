@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/WitchInputActions.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/InputScripts/WitchInputActions.inputactions'
 
 using System;
 using System.Collections;
