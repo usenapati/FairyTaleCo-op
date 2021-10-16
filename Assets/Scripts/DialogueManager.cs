@@ -26,6 +26,8 @@ public class DialogueManager : MonoBehaviour
 
     public DialogueTrigger dialogueTrigger;
 
+    bool playing = false;
+
     public static DialogueManager Instance
     {
         get
@@ -76,6 +78,8 @@ public class DialogueManager : MonoBehaviour
     {
         animator.SetBool("IsOpen", true);
 
+        playing = true;
+
         characterImage.sprite = dialogue.character.characterImage;
 
         audioPlayer.clip = dialogue.character.speakingSound;
@@ -94,7 +98,7 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
-        if (sentences.Count == 0)
+        if (sentences.Count == 0 && playing)
         {
             EndDialogue();
             return;
@@ -107,6 +111,7 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
+        playing = false;
         animator.SetBool("IsOpen", false);
         dialogueTrigger.NextDialogue();
     }
