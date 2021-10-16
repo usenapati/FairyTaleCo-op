@@ -52,11 +52,11 @@ public class DialogueManager : MonoBehaviour
 
     void Update()
     {
-        //if (Input.GetMouseButtonUp(1))
-        //{
-            //Debug.Log("KeyUp");
-            //DisplayNextSentence();
-        //}
+        if (Input.GetMouseButtonUp(1))
+        {
+            Debug.Log("KeyUp");
+            DisplayNextSentence();
+        }
     }
 
     public void StartDialogue(Dialogue dialogue)
