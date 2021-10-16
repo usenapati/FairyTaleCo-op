@@ -7,6 +7,8 @@ using UnityEngine.Events;
 
 public class DialogueManager : MonoBehaviour
 {
+    private DialogueActions dialogueControls;
+
     private Queue<string> sentences;
 
     private static DialogueManager _instance;
@@ -41,6 +43,17 @@ public class DialogueManager : MonoBehaviour
     void Awake()
     {
         _instance = this;
+        dialogueControls = new DialogueActions();
+    }
+
+    private void OnEnable()
+    {
+        dialogueControls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        dialogueControls.Disable();
     }
     
     // Start is called before the first frame update
@@ -52,7 +65,7 @@ public class DialogueManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonUp(1))
+        if (dialogueControls.UI.AdvanceDialogue.triggered)
         {
             Debug.Log("KeyUp");
             DisplayNextSentence();
