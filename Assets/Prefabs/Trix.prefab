@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 7131719786540305486}
   - component: {fileID: 7131719786540305485}
   - component: {fileID: 7131719786540305484}
-  - component: {fileID: 7131719786540305491}
   - component: {fileID: 7131719786540305490}
+  - component: {fileID: 4152002829346873070}
   m_Layer: 0
   m_Name: Trix
   m_TagString: Untagged
@@ -133,21 +133,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &7131719786540305491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7131719786540305489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09ef2525021708046a26930be24b7e06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementSpeed: 5
-  jumpForce: 5
-  facingRight: 0
 --- !u!95 &7131719786540305490
 Animator:
   serializedVersion: 3
@@ -167,3 +152,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4152002829346873070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7131719786540305489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4b6a8d5541afdd4fb2fafa75e074f4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 5
+  jumpForce: 5
+  facingRight: 0
