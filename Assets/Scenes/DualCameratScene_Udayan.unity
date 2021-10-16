@@ -406,6 +406,8 @@ MonoBehaviour:
   movementSpeed: 5
   jumpForce: 5
   facingRight: 0
+  anim: {fileID: 0}
+  r: {fileID: 0}
 --- !u!50 &411583312
 Rigidbody2D:
   serializedVersion: 4
@@ -701,6 +703,8 @@ MonoBehaviour:
   movementSpeed: 5
   jumpForce: 5
   facingRight: 0
+  anim: {fileID: 0}
+  r: {fileID: 0}
 --- !u!114 &801623468
 MonoBehaviour:
   m_ObjectHideFlags: 0
