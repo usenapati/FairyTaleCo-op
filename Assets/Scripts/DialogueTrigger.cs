@@ -6,6 +6,11 @@ public class DialogueTrigger : MonoBehaviour
 {
     public List<Dialogue> dialogues;
 
+    void Start()
+    {
+        TriggerDialogue();
+    }
+
     public void TriggerDialogue ()
     {
         NextDialogue();
