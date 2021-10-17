@@ -92,7 +92,7 @@ public class WitchController : MonoBehaviour
         }
         if (witchControls.Animations.Loser.triggered)
         {
-            anim.Play("Trix_Loser");
+            anim.Play("Trix_Lose");
         }
     }
 
