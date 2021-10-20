@@ -13,10 +13,11 @@ public class Destructible : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        //Debug.Log("Velocity: " + collision.rigidbody.velocity.y);
+        
         if (collision.gameObject.tag == "Player")
         {
-            if (collision.rigidbody.velocity.y <= velocityToDestroy)
+            Debug.Log("Velocity: " + collision.relativeVelocity.y);
+            if (collision.relativeVelocity.y < velocityToDestroy)
             {
                 if (prefabToSpawn != null)
                 {
