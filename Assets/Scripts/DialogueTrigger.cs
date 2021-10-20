@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DialogueTrigger : MonoBehaviour
 {
@@ -15,7 +16,8 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (dialogues.Count == 0)
         {
-            //Call GameManager to move to next scene, or whatever
+            //src: https://answers.unity.com/questions/1141235/how-to-move-to-next-scene-using-scene-manager.html
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         } 
         else {
             Dialogue d = dialogues[0];
