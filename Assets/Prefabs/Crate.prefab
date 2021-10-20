@@ -144,6 +144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 683404e40f544684a9851d28a1db1f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocityToDestroy: -0.06
+  velocityToDestroy: -15
   prefabToSpawn: {fileID: 0}
   destructionParticles: {fileID: 5750198638226735777, guid: e72f684630093914c9536742906e974f, type: 3}
