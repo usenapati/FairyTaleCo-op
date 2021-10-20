@@ -1,0 +1,431 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!29 &1
+OcclusionCullingSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_OcclusionBakeSettings:
+    smallestOccluder: 5
+    smallestHole: 0.25
+    backfaceThreshold: 100
+  m_SceneGUID: 00000000000000000000000000000000
+  m_OcclusionCullingData: {fileID: 0}
+--- !u!104 &2
+RenderSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 9
+  m_Fog: 0
+  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_FogMode: 3
+  m_FogDensity: 0.01
+  m_LinearFogStart: 0
+  m_LinearFogEnd: 300
+  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
+  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
+  m_AmbientIntensity: 1
+  m_AmbientMode: 3
+  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_SkyboxMaterial: {fileID: 0}
+  m_HaloStrength: 0.5
+  m_FlareStrength: 1
+  m_FlareFadeSpeed: 3
+  m_HaloTexture: {fileID: 0}
+  m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
+  m_DefaultReflectionMode: 0
+  m_DefaultReflectionResolution: 128
+  m_ReflectionBounces: 1
+  m_ReflectionIntensity: 1
+  m_CustomReflection: {fileID: 0}
+  m_Sun: {fileID: 0}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_UseRadianceAmbientProbe: 0
+--- !u!157 &3
+LightmapSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 12
+  m_GIWorkflowMode: 1
+  m_GISettings:
+    serializedVersion: 2
+    m_BounceScale: 1
+    m_IndirectOutputScale: 1
+    m_AlbedoBoost: 1
+    m_EnvironmentLightingMode: 0
+    m_EnableBakedLightmaps: 0
+    m_EnableRealtimeLightmaps: 0
+  m_LightmapEditorSettings:
+    serializedVersion: 12
+    m_Resolution: 2
+    m_BakeResolution: 40
+    m_AtlasSize: 1024
+    m_AO: 0
+    m_AOMaxDistance: 1
+    m_CompAOExponent: 1
+    m_CompAOExponentDirect: 0
+    m_ExtractAmbientOcclusion: 0
+    m_Padding: 2
+    m_LightmapParameters: {fileID: 0}
+    m_LightmapsBakeMode: 1
+    m_TextureCompression: 1
+    m_FinalGather: 0
+    m_FinalGatherFiltering: 1
+    m_FinalGatherRayCount: 256
+    m_ReflectionCompression: 2
+    m_MixedBakeMode: 2
+    m_BakeBackend: 1
+    m_PVRSampling: 1
+    m_PVRDirectSampleCount: 32
+    m_PVRSampleCount: 512
+    m_PVRBounces: 2
+    m_PVREnvironmentSampleCount: 256
+    m_PVREnvironmentReferencePointCount: 2048
+    m_PVRFilteringMode: 1
+    m_PVRDenoiserTypeDirect: 1
+    m_PVRDenoiserTypeIndirect: 1
+    m_PVRDenoiserTypeAO: 1
+    m_PVRFilterTypeDirect: 0
+    m_PVRFilterTypeIndirect: 0
+    m_PVRFilterTypeAO: 0
+    m_PVREnvironmentMIS: 1
+    m_PVRCulling: 1
+    m_PVRFilteringGaussRadiusDirect: 1
+    m_PVRFilteringGaussRadiusIndirect: 5
+    m_PVRFilteringGaussRadiusAO: 2
+    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
+    m_PVRFilteringAtrousPositionSigmaIndirect: 2
+    m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ExportTrainingData: 0
+    m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
+  m_LightingDataAsset: {fileID: 0}
+  m_LightingSettings: {fileID: 0}
+--- !u!196 &4
+NavMeshSettings:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_BuildSettings:
+    serializedVersion: 2
+    agentTypeID: 0
+    agentRadius: 0.5
+    agentHeight: 2
+    agentSlope: 45
+    agentClimb: 0.4
+    ledgeDropHeight: 0
+    maxJumpAcrossDistance: 0
+    minRegionArea: 2
+    manualCellSize: 0
+    cellSize: 0.16666667
+    manualTileSize: 0
+    tileSize: 256
+    accuratePlacement: 0
+    maxJobWorkers: 0
+    preserveTilesOutsideBounds: 0
+    debug:
+      m_Flags: 0
+  m_NavMeshData: {fileID: 0}
+--- !u!1 &251976867
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 251976870}
+  - component: {fileID: 251976869}
+  - component: {fileID: 251976868}
+  m_Layer: 0
+  m_Name: Main Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!81 &251976868
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251976867}
+  m_Enabled: 1
+--- !u!20 &251976869
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251976867}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 1
+  orthographic size: 5
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &251976870
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251976867}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &518276561
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2114817504304193544, guid: 843b4a34310a2824f9f4c9b9d6d88cf2, type: 3}
+      propertyPath: m_Name
+      value: DialogueSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143575631978195268, guid: 843b4a34310a2824f9f4c9b9d6d88cf2, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143575631978195268, guid: 843b4a34310a2824f9f4c9b9d6d88cf2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 215.0022
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143575631978195268, guid: 843b4a34310a2824f9f4c9b9d6d88cf2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 247.94356
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143575631978195268, guid: 843b4a34310a2824f9f4c9b9d6d88cf2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -61.26577
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143575631978195268, guid: 843b4a34310a2824f9f4c9b9d6d88cf2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143575631978195268, guid: 843b4a34310a2824f9f4c9b9d6d88cf2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143575631978195268, guid: 843b4a34310a2824f9f4c9b9d6d88cf2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143575631978195268, guid: 843b4a34310a2824f9f4c9b9d6d88cf2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143575631978195268, guid: 843b4a34310a2824f9f4c9b9d6d88cf2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143575631978195268, guid: 843b4a34310a2824f9f4c9b9d6d88cf2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143575631978195268, guid: 843b4a34310a2824f9f4c9b9d6d88cf2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756141395186281242, guid: 843b4a34310a2824f9f4c9b9d6d88cf2, type: 3}
+      propertyPath: dialogues.Array.size
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756141395186281242, guid: 843b4a34310a2824f9f4c9b9d6d88cf2, type: 3}
+      propertyPath: dialogues.Array.data[36].character
+      value: 
+      objectReference: {fileID: 11400000, guid: ea494788afc540540b84e6c52fb05157, type: 2}
+    - target: {fileID: 6756141395186281242, guid: 843b4a34310a2824f9f4c9b9d6d88cf2, type: 3}
+      propertyPath: dialogues.Array.data[36].sentences.Array.data[0]
+      value: Also here for testing purposes
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756141395186281245, guid: 843b4a34310a2824f9f4c9b9d6d88cf2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756141396483091516, guid: 843b4a34310a2824f9f4c9b9d6d88cf2, type: 3}
+      propertyPath: dialogueTrigger
+      value: 
+      objectReference: {fileID: 518276563}
+    - target: {fileID: 8350008546642868053, guid: 843b4a34310a2824f9f4c9b9d6d88cf2, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 843b4a34310a2824f9f4c9b9d6d88cf2, type: 3}
+--- !u!1 &518276562 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6756141394779819085, guid: 843b4a34310a2824f9f4c9b9d6d88cf2, type: 3}
+  m_PrefabInstance: {fileID: 518276561}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &518276563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518276562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7b6121b61efd92459aecdfc833e3172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogues:
+  - character: {fileID: 11400000, guid: 1dbabfc156119c64ebdf3a001949b2ca, type: 2}
+    sentences:
+    - Mirror, mirror on the wall..
+  - character: {fileID: 11400000, guid: 40cd8b5eafa4567409ab33314d100cb8, type: 2}
+    sentences:
+    - It's MAGIC mirror, you windbag.
+  - character: {fileID: 11400000, guid: 1dbabfc156119c64ebdf3a001949b2ca, type: 2}
+    sentences:
+    - You remind the King of his ex-wife, MIRIAM
+  - character: {fileID: 11400000, guid: 40cd8b5eafa4567409ab33314d100cb8, type: 2}
+    sentences:
+    - I am your ex-wife.
+  - character: {fileID: 11400000, guid: 8a9bb32f497a0994aa4fa6fe96f5e080, type: 2}
+    sentences:
+    - What's your decision, Dix?
+  - character: {fileID: 11400000, guid: 1dbabfc156119c64ebdf3a001949b2ca, type: 2}
+    sentences:
+    - My who?
+  - character: {fileID: 11400000, guid: 8a9bb32f497a0994aa4fa6fe96f5e080, type: 2}
+    sentences:
+    - DECISION!
+  - character: {fileID: 11400000, guid: 1dbabfc156119c64ebdf3a001949b2ca, type: 2}
+    sentences:
+    - Ah, yes...
+    - what was that for again?
+  - character: {fileID: 11400000, guid: 8a9bb32f497a0994aa4fa6fe96f5e080, type: 2}
+    sentences:
+    - Well...
+    - considering you should have kicked the bucket years ago--
+  - character: {fileID: 11400000, guid: 1dbabfc156119c64ebdf3a001949b2ca, type: 2}
+    sentences:
+    - Were you the ex-wife that tried to kill the King?--
+  - character: {fileID: 11400000, guid: 8a9bb32f497a0994aa4fa6fe96f5e080, type: 2}
+    sentences:
+    - --you must pick one of our children to take your throne.
+  - character: {fileID: 11400000, guid: 1dbabfc156119c64ebdf3a001949b2ca, type: 2}
+    sentences:
+    - --No...that was the dragon lady...
+  - character: {fileID: 11400000, guid: 8a9bb32f497a0994aa4fa6fe96f5e080, type: 2}
+    sentences:
+    - Are you listening?
+  - character: {fileID: 11400000, guid: 1dbabfc156119c64ebdf3a001949b2ca, type: 2}
+    sentences:
+    - Yes, yes, one of our children...who are they again?
+  - character: {fileID: 11400000, guid: 8a9bb32f497a0994aa4fa6fe96f5e080, type: 2}
+    sentences:
+    - '*sigh* Trix and Lix'
+  - character: {fileID: 11400000, guid: 1dbabfc156119c64ebdf3a001949b2ca, type: 2}
+    sentences:
+    - Ah, of course
+  - character: {fileID: 11400000, guid: 1dbabfc156119c64ebdf3a001949b2ca, type: 2}
+    sentences:
+    - ...
+  - character: {fileID: 11400000, guid: 8a9bb32f497a0994aa4fa6fe96f5e080, type: 2}
+    sentences:
+    - ...
+  - character: {fileID: 11400000, guid: 1dbabfc156119c64ebdf3a001949b2ca, type: 2}
+    sentences:
+    - ...
+  - character: {fileID: 11400000, guid: 8a9bb32f497a0994aa4fa6fe96f5e080, type: 2}
+    sentences:
+    - ...
+  - character: {fileID: 11400000, guid: 8a9bb32f497a0994aa4fa6fe96f5e080, type: 2}
+    sentences:
+    - So...?
+  - character: {fileID: 11400000, guid: 1dbabfc156119c64ebdf3a001949b2ca, type: 2}
+    sentences:
+    - What?
+  - character: {fileID: 11400000, guid: 8a9bb32f497a0994aa4fa6fe96f5e080, type: 2}
+    sentences:
+    - Which one of our children will you choose??
+  - character: {fileID: 11400000, guid: 1dbabfc156119c64ebdf3a001949b2ca, type: 2}
+    sentences:
+    - Ah, yes, yes...
+    - The King hates them both
+  - character: {fileID: 11400000, guid: 8a9bb32f497a0994aa4fa6fe96f5e080, type: 2}
+    sentences:
+    - I beg your pardon?
+  - character: {fileID: 11400000, guid: 1dbabfc156119c64ebdf3a001949b2ca, type: 2}
+    sentences:
+    - The King hates them with every fiber of his body
+  - character: {fileID: 11400000, guid: 8a9bb32f497a0994aa4fa6fe96f5e080, type: 2}
+    sentences:
+    - The King could probably use the fiber...
+  - character: {fileID: 11400000, guid: 1dbabfc156119c64ebdf3a001949b2ca, type: 2}
+    sentences:
+    - Do not forget to whom you are speaking...
+    - The King can have you shattered!
+  - character: {fileID: 11400000, guid: 8a9bb32f497a0994aa4fa6fe96f5e080, type: 2}
+    sentences:
+    - '*Laughs*'
+    - Just keep staring at me a bit longer
+    - That'll do the trick
+  - character: {fileID: 11400000, guid: 1dbabfc156119c64ebdf3a001949b2ca, type: 2}
+    sentences:
+    - The King does not get the joke
+  - character: {fileID: 11400000, guid: 8a9bb32f497a0994aa4fa6fe96f5e080, type: 2}
+    sentences:
+    - Just pick one of the children
+    - I don't care if you hate them or not
+  - character: {fileID: 11400000, guid: 1dbabfc156119c64ebdf3a001949b2ca, type: 2}
+    sentences:
+    - Hm...
+    - ...
+    - ...
+    - ...
+    - Ah! The King has got it!
+    - ...
+    - ...no, wait, the King has lost it.
+  - character: {fileID: 11400000, guid: 8a9bb32f497a0994aa4fa6fe96f5e080, type: 2}
+    sentences:
+    - Jesus Christ, Dix.
+  - character: {fileID: 11400000, guid: 1dbabfc156119c64ebdf3a001949b2ca, type: 2}
+    sentences:
+    - 'No wait, the King''s got it again! '
+    - 'The King shall put them both through a gauntlet of kingly duties '
+    - and the victor will take the crown!
+  - character: {fileID: 11400000, guid: 8a9bb32f497a0994aa4fa6fe96f5e080, type: 2}
+    sentences:
+    - What duties?
+    - You don't do anything
+  - character: {fileID: 11400000, guid: 1dbabfc156119c64ebdf3a001949b2ca, type: 2}
+    sentences:
+    - Come back to the King on that one...
