@@ -21,6 +21,7 @@ public class GoblinController : MonoBehaviour
     public bool holdingObject = false;
 
     public float maxGrabDistance = 2;
+    public float minGrabDistance = 0.38F;
 
     // grab object
     private GameObject heldObject = null;
@@ -58,10 +59,12 @@ public class GoblinController : MonoBehaviour
             if (hit.collider != null)
             {
                 float distance = Mathf.Abs(hit.point.x - transform.position.x);
-                Debug.Log("Lix is about to grab: " + hit.collider.name + " at distance " + distance );
+                
+                Debug.Log("Lix is about to grab: " + hit.collider.name + " at distance " + distance);
                 heldObject = hit.collider.gameObject;
                 heldObject.transform.parent = transform;
                 heldObject.GetComponent<Rigidbody2D>().isKinematic = true;
+                // TODO: ADD Offset to make box not stick in player
             }
             else
             {
