@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GoblinController : MonoBehaviour
 
@@ -8,12 +9,21 @@ public class GoblinController : MonoBehaviour
 {
     private GoblinInputActions goblinControls;
 
+    // constants
+    private static int GRAB_LAYER = 3;
+
     // exported variables
 
     public float movementSpeed = 5;
     public float jumpForce = 5;
 
     public bool facingRight = false;
+    public bool holdingObject = false;
+
+    public float maxGrabDistance = 2;
+
+    // grab object
+    private GameObject heldObject = null;
 
     // private components
 
@@ -27,7 +37,50 @@ public class GoblinController : MonoBehaviour
         r = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         Debug.Log("Hi from Lix Control Script Start() method!");
+
     }
+
+    // Event handlers
+    private void Grab(InputAction.CallbackContext context)
+    {
+        Debug.Log("Grab!");
+        context.ReadValue<float>();
+
+        if (heldObject == null)
+        {
+            // check for direction
+            Vector2 dir = Vector2.left;
+            if (facingRight) { dir = Vector2.right; }
+
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, maxGrabDistance, GRAB_LAYER);
+
+            // check if it hit
+            if (hit.collider != null)
+            {
+                float distance = Mathf.Abs(hit.point.x - transform.position.x);
+                Debug.Log("Lix is about to grab: " + hit.collider.name + " at distance " + distance );
+                heldObject = hit.collider.gameObject;
+                heldObject.transform.parent = transform;
+                heldObject.GetComponent<Rigidbody2D>().isKinematic = true;
+            }
+            else
+            {
+                Debug.Log("No grabby.");
+            }
+        }
+        else
+        {
+            // ungrab
+            Debug.Log("Lix let go the: " + heldObject.name);
+            heldObject.transform.SetParent(null);
+            heldObject.GetComponent<Rigidbody2D>().isKinematic = false;
+            heldObject = null;
+            
+        }
+
+    }
+
+
 
     // Input events
 
@@ -39,11 +92,17 @@ public class GoblinController : MonoBehaviour
     private void OnEnable()
     {
         goblinControls.Enable();
+
+        // subscribe to event triggers
+        goblinControls.Player.Grab.performed += Grab;
     }
 
     private void OnDisable()
     {
         goblinControls.Disable();
+
+        // unsubscribe from event triggers to prevent memleaks
+        goblinControls.Player.Grab.performed -= Grab;
     }
 
     private void Update()
@@ -75,6 +134,11 @@ public class GoblinController : MonoBehaviour
         {
             anim.SetBool("IsJumping", false);
         }
+
+        // Put box with player
+
+
+
 
         // Animation Demo
         if (goblinControls.Animations.Dance.triggered)
