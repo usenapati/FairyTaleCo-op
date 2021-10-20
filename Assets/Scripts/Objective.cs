@@ -12,6 +12,7 @@ public class Objective : MonoBehaviour
         Wake = 3,
         Find = 4,
         Hold = 5,
+        Feed = 6,
     }
 
     public enum ObjectiveStatus
@@ -32,7 +33,7 @@ public class Objective : MonoBehaviour
     [Multiline(10)]
     public string Description;
     public ObjectiveType Kind;
-    public ObjectiveStatus Status;
+    public ObjectiveStatus Status = ObjectiveStatus.Pending;
     public GameObject Player;
     public GameObject Target;
     public Objective NextObjective;
@@ -41,11 +42,6 @@ public class Objective : MonoBehaviour
     public float distance;
 
     public Objectives ParentScript { get; set; }
-
-    public Objective()
-    {
-        Status = ObjectiveStatus.Pending;
-    }
 
     private bool isPlayerNearTarget() { return Vector3.Distance(Player.transform.position, Target.transform.position) <= distance; }
 

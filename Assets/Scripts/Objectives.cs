@@ -9,4 +9,6 @@ public class Objectives : MonoBehaviour
     private Objective[] PlayerObjectives;
     public Text CurrentObjectiveDescription;
     public GameObject Player;
+
+   
 }
