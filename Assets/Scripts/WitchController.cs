@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 // a little credit to 
 // One Wheel Studio: https://www.youtube.com/watch?v=YHC-6I_LSos
@@ -9,9 +10,12 @@ using UnityEngine;
 
 public class WitchController : MonoBehaviour
 
-// controls variable
+    // controls variable
 {
     private WitchInputActions witchControls;
+
+    // constants
+    private static int GRAB_LAYER = 3;
 
     // exported variables
 
@@ -19,6 +23,13 @@ public class WitchController : MonoBehaviour
     public float jumpForce = 5;
 
     public bool facingRight = false;
+    public bool holdingObject = false;
+
+    public float maxGrabDistance = 2;
+    public float minGrabDistance = 0.38F;
+
+    // grab object
+    private GameObject heldObject = null;
 
     // private components
 
@@ -31,8 +42,52 @@ public class WitchController : MonoBehaviour
     {
         r = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        Debug.Log("Hi from Lix Control Script Start() method!");
+        Debug.Log("Hi from Trix Control Script Start() method!");
     }
+
+
+    // Event handlers
+    private void Grab(InputAction.CallbackContext context)
+    {
+        Debug.Log("Grab!");
+        context.ReadValue<float>();
+
+        if (heldObject == null)
+        {
+            // check for direction
+            Vector2 dir = Vector2.left;
+            if (facingRight) { dir = Vector2.right; }
+
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, maxGrabDistance, GRAB_LAYER);
+
+            // check if it hit
+            if (hit.collider != null)
+            {
+                float distance = Mathf.Abs(hit.point.x - transform.position.x);
+
+                Debug.Log("Trix is about to grab: " + hit.collider.name + " at distance " + distance);
+                heldObject = hit.collider.gameObject;
+                heldObject.transform.parent = transform;
+                heldObject.GetComponent<Rigidbody2D>().isKinematic = true;
+                // TODO: ADD Offset to make box not stick in player
+            }
+            else
+            {
+                Debug.Log("No grabby.");
+            }
+        }
+        else
+        {
+            // ungrab
+            Debug.Log("Trix let go the: " + heldObject.name);
+            heldObject.transform.SetParent(null);
+            heldObject.GetComponent<Rigidbody2D>().isKinematic = false;
+            heldObject = null;
+
+        }
+
+    }
+
 
     // Input events
 
@@ -44,11 +99,17 @@ public class WitchController : MonoBehaviour
     private void OnEnable()
     {
         witchControls.Enable();
+
+        // subscribe to event triggers
+        witchControls.Player.Grab.performed += Grab;
     }
 
     private void OnDisable()
     {
         witchControls.Disable();
+
+        // unsubscribe to event triggers
+        witchControls.Player.Grab.performed -= Grab;
     }
 
     private void Update()
