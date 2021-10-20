@@ -63,6 +63,8 @@ public class DialogueManager : MonoBehaviour
     {
         sentences = new Queue<string>();
         audioPlayer = GetComponent<AudioSource>();
+
+        dialogueTrigger.TriggerDialogue();
     }
 
     void Update()
