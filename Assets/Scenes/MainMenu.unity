@@ -3234,9 +3234,17 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5904332825022680592, guid: 878d58b8397b50f41a795fb281a470e7, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5904332825022680592, guid: 878d58b8397b50f41a795fb281a470e7, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 652824673d8b84448a13e345afd99cf6, type: 3}
+      objectReference: {fileID: 8300000, guid: f30d51444af88d945803488bccf45d4c, type: 3}
+    - target: {fileID: 5904332825022680592, guid: 878d58b8397b50f41a795fb281a470e7, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5904332825022680593, guid: 878d58b8397b50f41a795fb281a470e7, type: 3}
       propertyPath: m_Name
       value: SoundManager
