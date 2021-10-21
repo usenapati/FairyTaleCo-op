@@ -10,5 +10,30 @@ public class Objectives : MonoBehaviour
     public Text CurrentObjectiveDescription;
     public GameObject Player;
 
-   
+    private void Start()
+    {
+        var objectiveParentGameObject = this.CurrentObjective.transform.parent.gameObject;
+        if (objectiveParentGameObject != null)
+        {
+            this.PlayerObjectives = objectiveParentGameObject.GetComponentsInChildren<Objective>();
+            if (this.PlayerObjectives != null)
+            {
+                Debug.Log("Successfully found all player objectives");
+                foreach (Objective singleObjective in PlayerObjectives)
+                {
+                    if (singleObjective != null)
+                    {
+                        singleObjective.ParentScript = this;
+                    }
+                }
+            }
+            else
+                Debug.LogError("Unable to find objectives");
+        }
+    }
+
+    private void Update()
+    {
+        
+    }
 }
