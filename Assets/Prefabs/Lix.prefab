@@ -167,4 +167,6 @@ MonoBehaviour:
   movementSpeed: 5
   jumpForce: 12
   facingRight: 0
-  maxGrabDistance: 10
+  holdingObject: 0
+  maxGrabDistance: 2
+  minGrabDistance: 0.38

@@ -17,6 +17,7 @@ public class WitchController : MonoBehaviour
     // constants
     private static int GRAB_LAYER = 3;
     private static string GRAB_TAG = "Grabbable";
+    private static string GRAB_TAG_ALT = "Food";
 
     // exported variables
 
@@ -62,7 +63,7 @@ public class WitchController : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, maxGrabDistance, GRAB_LAYER);
 
             // check if it hit
-            if (hit.collider != null && hit.collider.tag == GRAB_TAG)
+            if (hit.collider != null && (hit.collider.tag == GRAB_TAG || hit.collider.tag == GRAB_TAG_ALT))
             {
                 float distance = Mathf.Abs(hit.point.x - transform.position.x);
 
