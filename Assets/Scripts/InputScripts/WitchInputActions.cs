@@ -33,14 +33,6 @@ public class @WitchInputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
-                },
-                {
-                    ""name"": ""Grab"",
-                    ""type"": ""Button"",
-                    ""id"": ""4e93ced4-185b-4bdb-9a02-5f2b0010454e"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -142,17 +134,6 @@ public class @WitchInputActions : IInputActionCollection, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b79de875-479f-4d94-9f82-a39ab8918972"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Grab"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -228,7 +209,6 @@ public class @WitchInputActions : IInputActionCollection, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
-        m_Player_Grab = m_Player.FindAction("Grab", throwIfNotFound: true);
         // Animations
         m_Animations = asset.FindActionMap("Animations", throwIfNotFound: true);
         m_Animations_Dance = m_Animations.FindAction("Dance", throwIfNotFound: true);
@@ -285,14 +265,12 @@ public class @WitchInputActions : IInputActionCollection, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Jump;
-    private readonly InputAction m_Player_Grab;
     public struct PlayerActions
     {
         private @WitchInputActions m_Wrapper;
         public PlayerActions(@WitchInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
-        public InputAction @Grab => m_Wrapper.m_Player_Grab;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -308,9 +286,6 @@ public class @WitchInputActions : IInputActionCollection, IDisposable
                 @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-                @Grab.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrab;
-                @Grab.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrab;
-                @Grab.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrab;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -321,9 +296,6 @@ public class @WitchInputActions : IInputActionCollection, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
-                @Grab.started += instance.OnGrab;
-                @Grab.performed += instance.OnGrab;
-                @Grab.canceled += instance.OnGrab;
             }
         }
     }
@@ -381,7 +353,6 @@ public class @WitchInputActions : IInputActionCollection, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
-        void OnGrab(InputAction.CallbackContext context);
     }
     public interface IAnimationsActions
     {

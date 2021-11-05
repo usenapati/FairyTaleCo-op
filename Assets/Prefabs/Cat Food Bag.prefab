@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2203709433245178305}
   - component: {fileID: 2203709433245178306}
   - component: {fileID: 2203709433245178307}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Cat Food Bag
   m_TagString: Untagged
   m_Icon: {fileID: 0}

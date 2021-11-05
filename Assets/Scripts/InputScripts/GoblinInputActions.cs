@@ -33,14 +33,6 @@ public class @GoblinInputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
-                },
-                {
-                    ""name"": ""Grab"",
-                    ""type"": ""Button"",
-                    ""id"": ""80e96122-030a-4216-9082-021d2a6025cf"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -112,6 +104,17 @@ public class @GoblinInputActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""a3f6e971-0743-4eec-9290-0b651365a13e"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""9b8725e3-7457-4b20-95ea-b188144c9ae1"",
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
@@ -129,17 +132,6 @@ public class @GoblinInputActions : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""5b2d4081-1ff5-421e-9571-b628b70527be"",
-                    ""path"": ""<Keyboard>/downArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Grab"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -784,7 +776,6 @@ public class @GoblinInputActions : IInputActionCollection, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
-        m_Player_Grab = m_Player.FindAction("Grab", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -853,14 +844,12 @@ public class @GoblinInputActions : IInputActionCollection, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Jump;
-    private readonly InputAction m_Player_Grab;
     public struct PlayerActions
     {
         private @GoblinInputActions m_Wrapper;
         public PlayerActions(@GoblinInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
-        public InputAction @Grab => m_Wrapper.m_Player_Grab;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -876,9 +865,6 @@ public class @GoblinInputActions : IInputActionCollection, IDisposable
                 @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-                @Grab.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrab;
-                @Grab.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrab;
-                @Grab.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGrab;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -889,9 +875,6 @@ public class @GoblinInputActions : IInputActionCollection, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
-                @Grab.started += instance.OnGrab;
-                @Grab.performed += instance.OnGrab;
-                @Grab.canceled += instance.OnGrab;
             }
         }
     }
@@ -1099,7 +1082,6 @@ public class @GoblinInputActions : IInputActionCollection, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
-        void OnGrab(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

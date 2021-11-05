@@ -20,14 +20,6 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
-                },
-                {
-                    "name": "Grab",
-                    "type": "Button",
-                    "id": "80e96122-030a-4216-9082-021d2a6025cf",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -99,6 +91,17 @@
                 },
                 {
                     "name": "",
+                    "id": "a3f6e971-0743-4eec-9290-0b651365a13e",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "9b8725e3-7457-4b20-95ea-b188144c9ae1",
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
@@ -116,17 +119,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "5b2d4081-1ff5-421e-9571-b628b70527be",
-                    "path": "<Keyboard>/downArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Grab",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
