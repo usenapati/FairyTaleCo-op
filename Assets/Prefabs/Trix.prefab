@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7131719786540305484}
   - component: {fileID: 7131719786540305490}
   - component: {fileID: 4152002829346873070}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Trix
   m_TagString: Player
   m_Icon: {fileID: 0}

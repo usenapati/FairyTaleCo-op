@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7647746187945500836}
   - component: {fileID: 7647746187945500837}
   - component: {fileID: 7647746187945500838}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: FoodBowl
   m_TagString: Grabbable
   m_Icon: {fileID: 0}

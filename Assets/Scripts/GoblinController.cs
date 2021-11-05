@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GoblinController : MonoBehaviour
 
@@ -18,6 +19,13 @@ public class GoblinController : MonoBehaviour
     public float jumpForce = 5;
 
     public bool facingRight = false;
+    public bool holdingObject = false;
+
+    public float maxGrabDistance = 2;
+    public float minGrabDistance = 0.38F;
+
+    // grab object
+    private GameObject heldObject = null;
 
     // private components
 
@@ -31,6 +39,7 @@ public class GoblinController : MonoBehaviour
         r = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         Debug.Log("Hi from Lix Control Script Start() method!");
+
     }
 
     // Event handlers
@@ -51,7 +60,7 @@ public class GoblinController : MonoBehaviour
             if (hit.collider != null && hit.collider.tag == GRAB_TAG)
             {
                 float distance = Mathf.Abs(hit.point.x - transform.position.x);
-
+                
                 Debug.Log("Lix is about to grab: " + hit.collider.name + " at distance " + distance);
                 heldObject = hit.collider.gameObject;
                 heldObject.transform.parent = transform;
@@ -70,7 +79,7 @@ public class GoblinController : MonoBehaviour
             heldObject.transform.SetParent(null);
             heldObject.GetComponent<Rigidbody2D>().isKinematic = false;
             heldObject = null;
-
+            
         }
 
     }
@@ -87,11 +96,17 @@ public class GoblinController : MonoBehaviour
     private void OnEnable()
     {
         goblinControls.Enable();
+
+        // subscribe to event triggers
+        goblinControls.Player.Grab.performed += Grab;
     }
 
     private void OnDisable()
     {
         goblinControls.Disable();
+
+        // unsubscribe from event triggers to prevent memleaks
+        goblinControls.Player.Grab.performed -= Grab;
     }
 
     private void Update()
@@ -123,6 +138,11 @@ public class GoblinController : MonoBehaviour
         {
             anim.SetBool("IsJumping", false);
         }
+
+        // Put box with player
+
+
+
 
         // Animation Demo
         if (goblinControls.Animations.Dance.triggered)

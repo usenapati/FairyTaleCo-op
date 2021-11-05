@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-// a little credit to
+// a little credit to 
 // One Wheel Studio: https://www.youtube.com/watch?v=YHC-6I_LSos
 // samyam: https://www.youtube.com/watch?v=m5WsmlEOFiA
 // great resources to help me get this up and running.
 
 public class WitchController : MonoBehaviour
 
-// controls variable
+    // controls variable
 {
     private WitchInputActions witchControls;
 
@@ -23,6 +24,13 @@ public class WitchController : MonoBehaviour
     public float jumpForce = 5;
 
     public bool facingRight = false;
+    public bool holdingObject = false;
+
+    public float maxGrabDistance = 2;
+    public float minGrabDistance = 0.38F;
+
+    // grab object
+    private GameObject heldObject = null;
 
     // private components
 
@@ -35,7 +43,7 @@ public class WitchController : MonoBehaviour
     {
         r = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        Debug.Log("Hi from Lix Control Script Start() method!");
+        Debug.Log("Hi from Trix Control Script Start() method!");
     }
 
 
@@ -92,11 +100,17 @@ public class WitchController : MonoBehaviour
     private void OnEnable()
     {
         witchControls.Enable();
+
+        // subscribe to event triggers
+        witchControls.Player.Grab.performed += Grab;
     }
 
     private void OnDisable()
     {
         witchControls.Disable();
+
+        // unsubscribe to event triggers
+        witchControls.Player.Grab.performed -= Grab;
     }
 
     private void Update()
