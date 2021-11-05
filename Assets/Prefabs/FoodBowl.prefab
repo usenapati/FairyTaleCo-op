@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 7647746187945500836}
   - component: {fileID: 7647746187945500837}
   - component: {fileID: 7647746187945500838}
-  m_Layer: 3
+  m_Layer: 2
   m_Name: FoodBowl
-  m_TagString: Untagged
+  m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
